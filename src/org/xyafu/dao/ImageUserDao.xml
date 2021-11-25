@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xyafu.dao.ImageUserDao">
+
+    <select id="verifyNumber" resultType="ImageUser">
+        select * from imageUser where imageUserName=#{imageUserName} and imageUserPassword=#{imageUserPassword}
+    </select>
+
+    <insert id="insertUser" parameterType="ImageUser">
+        insert into imageUser values(#{imageUserId},#{imageUserName},#{imageUserPassword})
+    </insert>
+
+    <select id="findByImageUserName" parameterType="ImageUser" resultType="ImageUser">
+        select * from imageUser where imageUserName=#{imageUserName}
+    </select>
+
+    <update id="updatePassword" parameterType="ImageUser">
+        update imageUser set imageUserPassword=#{imageUserPassword},imageUserName=#{imageUserName} where imageUserId=#{imageUserId}
+    </update>
+
+
+</mapper>

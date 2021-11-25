@@ -1,0 +1,131 @@
+#user-message{
+    height: 50px;
+    margin: 15px 39px 0 auto;
+    float: right;
+    margin-right: 100px;
+    display: none;
+}
+
+#user-message img{
+    height: 50px;
+    float: left;
+    border-radius: 5px;
+}
+#user-message div{
+    float: left;
+    color: #5cb85c;
+    line-height: 50px;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+#btnUp img{
+    transform: rotate(180deg);
+    height: 50px;
+    width: 50px;
+}
+
+#search{
+    width: 60%;
+    line-height: 80px;
+    margin-left: 40px;
+    float: left;
+}
+
+#search input{
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: 200;
+    color: #fff;
+    background-color: rgba(250, 250, 250, 0.15);
+    outline: none;
+    border: none;
+    box-shadow: none;
+    line-height: 40px;
+    height: 40px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+#search img{
+    width: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#search img:hover{
+    margin-left: 2.5px;
+    width: 45px;
+}
+.hot{
+    float: right;
+}
+.hot-count{
+    display: block;
+    float: left;
+    font-size: 1.2em;
+    margin-top: 5px;
+    color: #ffffff;
+}
+.author{
+    display: block;
+    float: left;
+    font-size: 1.2em;
+    margin-top: 5px;
+    color: #b9def0;
+    margin-left: 15px;
+}
+.like{
+    cursor: pointer;
+}
+.like:hover{
+    content: url("../img/like-red.png");
+}
+.like-red{
+    content: url("../img/like-red.png");
+}
+
+#me{
+    position: absolute;
+    top: 80px;
+    z-index: 999;
+    text-align: center;
+    background: rgba(250,250,250,0.2);
+    display:none;
+    box-shadow: 0px 10px 10px 0px rgba(0 ,0, 0 ,0.5);
+    border-radius: 5px;
+}
+.me-h2{
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: white;
+}
+
+#me ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+#me li{
+    height: 35px;
+    line-height: 35px;
+}
+
+.me-div{
+    height: 45px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.me-div:hover{
+    background: rgba(250,250,250,0.5);
+    border-radius: 5px;
+}
+#me a{
+    color: white;
+    text-decoration: none;
+}

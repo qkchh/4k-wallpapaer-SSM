@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xyafu.dao.BigImageDao">
+
+    <insert id="insertBigImage" parameterType="BigImage">
+        insert into bigImage values(#{bigImageId},#{bigImageAuthor},#{bigImageSrc},#{bigImageResolution},
+                                    #{bigImageAnimeName},#{bigImageRole},#{bigImageName},#{bigImageSize},
+                                    #{bigImageTags},#{bigImageUpDate},#{bigImageDeleteDate},#{bigImageDeleteState})
+    </insert>
+
+    <select id="findBigImage" resultType="BigImage">
+        select * from bigImage
+    </select>
+
+    <select id="findBigImageByIndex" resultType="BigImage" parameterType="Integer">
+        select * from bigImage order by bigImageId limit #{index},#{index+24}
+    </select>
+
+
+    <select id="" parameterType="String" resultType="BigImage">
+        SELECT * from bigImage where bigImageAnimeName LIKE '%'+#{q}+'%' OR bigImageRole like '%'+#{q}+'%' or bigImageTags LIKE '%'+#{q}+'%'
+    </select>
+
+</mapper>

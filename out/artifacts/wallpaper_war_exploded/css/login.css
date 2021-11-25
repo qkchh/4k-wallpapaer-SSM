@@ -1,0 +1,79 @@
+.btn-login{
+    height: 50px;
+    background: #777;
+    width: 20%;
+    margin: 0 auto;
+    line-height: 50px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+.btn-login:hover{
+    background: #666;
+}
+
+#error-message{
+    height: 50px;
+    color: #b92b27;
+    font-size: 2em;
+}
+
+
+.file {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 60%;
+    height: 40px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 40px;
+    margin: 0 auto;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: 200;
+    color: #fff;
+    background-color: rgba(250, 250, 250, 0.15);
+    outline: none;
+    box-shadow: none;
+    margin-bottom: 25px;
+}
+
+.file input {
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    font-size: 12px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#text-ul{
+    list-style: none;
+    float: left;
+    width: 100%;
+    padding-left: 0px;
+
+}
+#text-ul li{
+    float: left;
+    margin: 0px 3px 7px 3px;
+    color: #ddd;
+    background: rgba(250, 250, 250, 0.15);
+    border: none;
+    border-radius: 16px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 15px;
+    position: relative;
+}
+.div-ul{
+    width: 60%;
+    margin: 0 auto;
+}

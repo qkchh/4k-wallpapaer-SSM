@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>4K Wallpaper</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/light-box.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="js/hot.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<nav>
+    <div class="logo">
+        <a href="index.html">4K<em>wallpaper</em></a>
+    </div>
+    <!--        用户名显示内容-->
+    <div style="float: right;">
+        <div id="user-message">
+            <img src="img/scroll-icon.png" >
+            <div id="user-name">用户名称</div>
+        </div>
+        <div id="me">
+            <h2 class="me-h2">大坏蛋大</h2>
+            <ul>
+                <div class="me-div"><li><a href="me.html">个人中心</a></li></div>
+                <div class="me-div"><li><a href="mylike.html">我的收藏</a></li></div>
+                <div class="me-div"><li><a href="update.html">修改密码</a></li></div>
+                <div class="me-div"><li><a href="user/exit"><div id="exit" style="color: white">退出</div></a></li></div>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-icon">
+        <span></span>
+    </div>
+</nav>
+<!--视频div-->
+<div id="video-container">
+    <div class="video-overlay"></div>
+    <div class="video-content">
+        <div class="inner">
+            <h1>Welcome to <em>4K wallpaper</em></h1>
+            <p>免费的4K壁纸分享网站</p>
+            <p>等待你的加入</p>
+            <div class="scroll-icon">
+                <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="img/scroll-icon.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <video autoplay="" loop="" muted>
+        <source src="resource/wallpaper.mp4" type="video/mp4" />
+    </video>
+</div>
+
+<!--中间内容部分-->
+<div class="grid-portfolio" id="portfolio">
+    <div class="container">
+        <div class="row" id="center">
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="load-more-button" onclick="waterallowData()">
+                    <a id="loadMessage" style="cursor: pointer">Load More</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--尾部-->
+<footer>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <p>版权：@2500傻不拉几奇妙公司 | 由大坏蛋设计</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- 设置成返回顶部 -->
+<div class="popup-icon">
+    <button id="btnUp" class="modal-btn"><img src="img/scroll-icon.png" onclick="topFunction()"></button>
+</div>
+
+<!--菜单栏-->
+<section class="overlay-menu">
+    <div class="container">
+        <div class="row">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="hot.html">最热排行</a>
+                    </li>
+                    <li>
+                        <a href="upload.html">图片上传</a>
+                    </li>
+                    <li>
+                        <a href="login.html">用户登录</a>
+                    </li>
+                    <li>
+                        <a href="register.html">用户注册</a>
+                    </li>
+                    <li>
+                        <a href="about.html">关于作者</a>
+                    </li>
+
+                </ul>
+                <p>期待你的加入</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xyafu.dao.ImageDao">
+
+<!--    插入全部数据-->
+    <insert id="insertAll" parameterType="Image">
+        insert into bigImage values  (#{imageId},#{imageAuthor},#{bigImageSrc},#{imageName},1);
+        insert into imageData values (#{imageId},#{imageResolution},#{imageSize},0);
+        insert into imageDate values (#{imageId},#{upDate},null);
+        insert into imageMessage values (#{imageId},#{animeName},#{imageRole},#{tags});
+        insert into smImage values (#{imageId},#{smImageSrc});
+    </insert>
+    <select id="findImageSrc" resultType="Image">
+        select bigImageSrc,smImageSrc from  bigImage,smImage where bigImage.bigImageId=smImage.smImageId
+    </select>
+
+    <!--分页查询全部数据-->
+    <select id="findImageSrcByIndex" resultType="Image" parameterType="Image">
+        select  bigImageId as imageId,
+                bigImageSrc,
+                smImageSrc,
+                imageAnimeName as animeName,
+                imageRole,
+                imageTags as tags,
+                bigImageAuthor as imageAuthor,
+                imageSize,
+                imageLike,
+                imageResolution
+        from bigImage,smImage,imageData,imageMessage
+        where bigImageId=smImageId and bigImageId=imageData.imageId and bigImageId=imageMessage.imageId and
+              bigImageDeleteState=1
+        order by bigImageId limit #{start},#{end}
+    </select>
+
+    <select id="findCount" resultType="Integer">
+        select count(*) from bigImage
+    </select>
+
+    <select id="findImageSrcByDate" resultType="Image" parameterType="Image">
+        select  bigImageId as imageId,
+                bigImageSrc,
+                smImageSrc,
+                imageAnimeName as animeName,
+                imageRole,
+                imageTags as tags,
+                bigImageAuthor as imageAuthor,
+                imageSize,
+                imageLike,
+                imageResolution
+        from bigImage,smImage,imageData,imageMessage,imagedate
+        where bigImageId=smImageId and bigImageId=imageData.imageId and bigImageId=imageMessage.imageId and bigImageId=imageDate.imageId and
+            bigImageDeleteState=1
+        order by imageUpDate desc limit #{start},#{end}
+    </select>
+
+    <select id="findImageSrcByUser" resultType="Image" parameterType="Image">
+        select  bigImageId as imageId,
+                bigImageSrc,
+                smImageSrc,
+                imageAnimeName as animeName,
+                imageRole,
+                imageTags as tags,
+                bigImageAuthor as imageAuthor,
+                imageSize,
+                imageLike,
+                imageResolution
+        from bigImage,smImage,imageData,imageMessage
+        where bigImageId=smImageId and bigImageId=imageData.imageId and bigImageId=imageMessage.imageId and
+            bigImageDeleteState=1 and bigImageAuthor=#{imageAuthor}
+        order by imageLike limit #{start},#{end}
+    </select>
+
+    <update id="deleteImage" parameterType="Image">
+        update bigImage set bigImageDeleteState=0 where bigImageId=#{imageId};
+        update imageDate set imageDeleteDate=#{deleteDate} where imageId=#{imageId};
+    </update>
+
+    <select id="findImageSrcByLike"  resultType="Image" parameterType="Image">
+        select  bigImageId as imageId,
+                bigImageSrc,
+                smImageSrc,
+                imageAnimeName as animeName,
+                imageRole,
+                imageTags as tags,
+                bigImageAuthor as imageAuthor,
+                imageSize,
+                imageLike,
+                imageResolution
+        from bigImage,smImage,imageData,imageMessage
+        where bigImageId=smImageId and bigImageId=imageData.imageId and bigImageId=imageMessage.imageId and
+            bigImageDeleteState=1 and
+            (imageAnimeName like #{tags} or imageRole like #{tags} or imagemessage.imageTags like #{tags})
+        order by bigImageId
+            limit #{start},#{end}
+    </select>
+
+
+    <select id="findImageSrcByHotLike" resultType="Image" parameterType="Image">
+        select  bigImageId as imageId,
+                bigImageSrc,
+                smImageSrc,
+                imageAnimeName as animeName,
+                imageRole,
+                imageTags as tags,
+                bigImageAuthor as imageAuthor,
+                imageSize,
+                imageLike,
+                imageResolution
+        from bigImage,smImage,imageData,imageMessage,imagedate
+        where bigImageId=smImageId and bigImageId=imageData.imageId and bigImageId=imageMessage.imageId and bigImageId=imageDate.imageId and
+            bigImageDeleteState=1
+        order by imageLike desc limit #{start},#{end}
+    </select>
+
+
+    <select id="findImageSrcByMyLike" resultType="Image" parameterType="Image">
+        select  bigImageId as imageId,
+                bigImageSrc,
+                smImageSrc,
+                imageAnimeName as animeName,
+                imageRole,
+                imageTags as tags,
+                bigImageAuthor as imageAuthor,
+                imageSize,
+                imageLike,
+                imageResolution
+        from bigImage,smImage,imageData,imageMessage,imagedate,userToImage
+        where bigImageId=smImageId and bigImageId=imageData.imageId and bigImageId=imageMessage.imageId and bigImageId=imageDate.imageId and bigImageId=userToImage.imageId and
+            bigImageDeleteState=1 and userName=#{imageUserName}
+        order by imageLike desc limit #{start},#{end}
+    </select>
+</mapper>
